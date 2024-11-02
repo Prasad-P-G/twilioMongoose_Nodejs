@@ -1,7 +1,7 @@
 const userDetailsModel = require("../models/user");
 const twilio = require("twilio");
-//require("dotenv").config();
-require("dotenv").config({ path: "./vars/.env" });
+require("dotenv").config();
+//require("dotenv").config({ path: "./vars/.env" });
 
 const TWILIO_ACC_SID = process.env.TWILIO_ACC_SID;
 const TWILIO_AUTH_ID = process.env.TWILIO_AUTH_ID;
