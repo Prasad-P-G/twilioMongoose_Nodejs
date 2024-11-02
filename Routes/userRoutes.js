@@ -1,5 +1,6 @@
-require("dotenv").config();
-
+//require("dotenv").config();
+//require(dotenv.config({ path: "./vars/.env" }));
+require("dotenv").config({ path: "./vars/.env" });
 const express = require("express");
 const userMobileOTPController = require("../controllers/userMobileOTPController");
 const verifyOTPController = require("../controllers/verifyOTPController");

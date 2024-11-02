@@ -1,4 +1,5 @@
-require("dotenv").config();
+//require("dotenv").config();
+require("dotenv").config({ path: "./vars/.env" });
 const cors = require("cors");
 
 const mongoose = require("mongoose");

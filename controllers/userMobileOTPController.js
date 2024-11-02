@@ -1,5 +1,6 @@
 const otpModel = require("../models/otp");
-
+//require("dotenv").config();
+require("dotenv").config({ path: "./vars/.env" });
 const otpGenerator = require("otp-generator");
 const twilio = require("twilio");
 
