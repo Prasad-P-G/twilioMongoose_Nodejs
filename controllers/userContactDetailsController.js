@@ -1,16 +1,34 @@
 const userDetailsModel = require("../models/user");
 const twilio = require("twilio");
 require("dotenv").config();
+const twilioModel = require("../models/twiliokeys");
+
 //require("dotenv").config({ path: "./vars/.env" });
 
-const TWILIO_ACC_SID = process.env.TWILIO_ACC_SID;
-const TWILIO_AUTH_ID = process.env.TWILIO_AUTH_ID;
-const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
-
-const twilioClient = new twilio(TWILIO_ACC_SID, TWILIO_AUTH_ID);
+var TWILIO_ACC_SID = null;
+var TWILIO_AUTH_ID = null;
+var TWILIO_PHONE_NUMBER = null;
+var Admin_phone = null;
 
 const userContactDetailsController = async (req, res) => {
   try {
+    const twilioAccout = await twilioModel.find();
+    if (twilioAccout) {
+      console.log("twilio info", twilioAccout);
+      console.log("length is ", twilioAccout.length);
+    } else {
+      console.log("no data for twilio");
+    }
+
+    if (twilioAccout.length == 1) {
+      TWILIO_ACC_SID = twilioAccout[0].sid;
+      TWILIO_AUTH_ID = twilioAccout[0].auth_id;
+      TWILIO_PHONE_NUMBER = twilioAccout[0].twilioPhone;
+      Admin_phone = twilioAccout[0].admin_phone;
+    }
+
+    const twilioClient = new twilio(TWILIO_ACC_SID, TWILIO_AUTH_ID);
+
     const { name, email, phoneNumber, desc } = req.body;
 
     console.log("UI Data", req.body);
@@ -24,7 +42,7 @@ const userContactDetailsController = async (req, res) => {
     if (SavedUserDetails) {
       const result = await twilioClient.messages.create({
         body: `Message has recieved from ${name} - ${email} with description : ${desc} and user phone number is ${phoneNumber}`,
-        to: process.env.ADMIN_PHONE_NUMBER,
+        to: Admin_phone,
         from: TWILIO_PHONE_NUMBER,
       });
     }
