@@ -1,4 +1,4 @@
-require("dotenv").config();
+//require("dotenv").config();
 //require("dotenv").config({ path: "./vars/.env" });
 const cors = require("cors");
 
@@ -8,7 +8,7 @@ mongoose.connect(
   "mongodb+srv://guru1982test:bo%401982@bo-backend.eljni.mongodb.net/UserPhoneOTPDb?retryWrites=true&w=majority&appName=BO-Backend"
 );
 
-console.log(process.env.MONGODB_URI);
+//console.log(process.env.MONGODB_URI);
 
 const express = require("express");
 const app = express();

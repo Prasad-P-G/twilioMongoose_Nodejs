@@ -1,14 +1,14 @@
 const userDetailsModel = require("../models/user");
 const twilio = require("twilio");
-require("dotenv").config();
+//require("dotenv").config();
 const twilioModel = require("../models/twiliokeys");
 
 //require("dotenv").config({ path: "./vars/.env" });
 
-var TWILIO_ACC_SID = null;
-var TWILIO_AUTH_ID = null;
-var TWILIO_PHONE_NUMBER = null;
-var Admin_phone = null;
+var TWILIO_ACC_SID = "null";
+var TWILIO_AUTH_ID = "null";
+var TWILIO_PHONE_NUMBER = "null";
+var Admin_phone = "null";
 
 const userContactDetailsController = async (req, res) => {
   try {
