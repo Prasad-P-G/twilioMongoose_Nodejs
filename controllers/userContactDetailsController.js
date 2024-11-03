@@ -31,9 +31,9 @@ const userContactDetailsController = async (req, res) => {
 
     const { name, email, phoneNumber, desc } = req.body;
 
-    console.log("The user query is :", desc);
+    //console.log("The user query is :", desc);
 
-    console.log("UI Data", req.body);
+    //console.log("UI Data", req.body);
 
     //save user details into mongoose db
     const userDetails = new userDetailsModel({ ...req.body, date: new Date() });
