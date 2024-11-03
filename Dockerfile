@@ -5,5 +5,5 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
-EXPOSE 5000
+EXPOSE 8080
 CMD [ "node", "server.js" ]
