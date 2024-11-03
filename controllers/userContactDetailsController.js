@@ -32,13 +32,13 @@ const userContactDetailsController = async (req, res) => {
     //sending message to admin mobile
     return res.status(200).json({
       data: SavedUserDetails,
-      message: "User Details Sent to Concerned person Successfully",
+      message: "Your inputs Sent to Concerned person Successfully",
       success: true,
     });
   } catch (err) {
     return res.status(400).json({
       error: err.message,
-      message: "Invalid User Details - Data Error",
+      message: err.message,
       success: false,
     });
   }
