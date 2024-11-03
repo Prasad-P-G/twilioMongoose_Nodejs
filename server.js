@@ -3,7 +3,10 @@ require("dotenv").config();
 const cors = require("cors");
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(
+  "mongodb+srv://guru1982test:bo%401982@bo-backend.eljni.mongodb.net/UserPhoneOTPDb?retryWrites=true&w=majority&appName=BO-Backend"
+);
 
 console.log(process.env.MONGODB_URI);
 
