@@ -13,12 +13,18 @@ const userLocationDetailsController = async (req, res) => {
 
     const responseData = await userlocationData.save();
 
+    const noOfVisits = await userLocationModel.find();
+
+    if (noOfVisits) {
+      console.log("No of Visits =", noOfVisits.length);
+    }
+
     console.log("current location data: ", locationPayLoad);
 
     console.log("current user location response:", responseData);
 
     return res.status(200).json({
-      message: userlocationData,
+      message: { location: userlocationData, no: noOfVisits.length },
       success: true,
       error: false,
     });
